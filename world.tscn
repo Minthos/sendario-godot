@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhyqau1on7ymq"]
+[gd_scene load_steps=19 format=3 uid="uid://bhyqau1on7ymq"]
 
 [ext_resource type="Script" path="res://car.gd" id="1_xt84k"]
 
@@ -28,8 +28,8 @@ bounce = 0.2
 [sub_resource type="BoxMesh" id="BoxMesh_nu2d0"]
 size = Vector3(2, 1, 6)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rdyk7"]
-points = PackedVector3Array(-0.970122, -0.5, -1.91223, 0.971055, 0.5, 1.85247, 1, -0.499038, 1.90861, -0.970122, -0.5, 1.91223, 1, -0.499038, -1.90861, -0.939309, 0.5, -1.85247, 0.971055, 0.5, -1.85247, -0.939309, 0.5, 1.85247)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_blq1y"]
+points = PackedVector3Array(1, 0.5, 3, 1, -0.5, 3, 1, 0.5, -3, -1, 0.5, 3, -1, -0.5, 3, 1, -0.5, -3, -1, 0.5, -3, -1, -0.5, -3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f55bg"]
 albedo_color = Color(0.164706, 0.164706, 0.164706, 1)
@@ -38,6 +38,24 @@ albedo_color = Color(0.164706, 0.164706, 0.164706, 1)
 material = SubResource("StandardMaterial3D_f55bg")
 inner_radius = 0.25
 outer_radius = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_gw4xk"]
+size = Vector3(0.05, 1, 6)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_u4kf7"]
+points = PackedVector3Array(0.117838, 0.595126, 3.04702, -0.0726004, -0.547507, -3.04702, 0.117838, -0.547507, -3.04702, -0.0726004, -0.547507, 3.04702, -0.0726004, 0.595126, -3.04702, 0.117838, 0.595126, -3.04702, 0.117838, -0.547507, 3.04702, -0.0726004, 0.595126, 3.04702)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ryvu1"]
+points = PackedVector3Array(0.117838, 0.595126, 3.04702, -0.0726004, -0.547507, -3.04702, 0.117838, -0.547507, -3.04702, -0.0726004, -0.547507, 3.04702, -0.0726004, 0.595126, -3.04702, 0.117838, 0.595126, -3.04702, 0.117838, -0.547507, 3.04702, -0.0726004, 0.595126, 3.04702)
+
+[sub_resource type="BoxMesh" id="BoxMesh_io6b5"]
+size = Vector3(2, 1, 0.05)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rqrv3"]
+points = PackedVector3Array(-1.01587, -0.515873, -0.0408637, 1.01587, 0.531746, 0.0543558, 1.01587, 0.531746, -0.0408637, -1.01587, 0.531746, 0.0543558, 1.01587, -0.515873, 0.0543558, 1.01587, -0.515873, -0.0408637, -1.01587, 0.531746, -0.0408637, -1.01587, -0.515873, 0.0543558)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x3g7s"]
+points = PackedVector3Array(-1.01587, -0.515873, -0.0408637, 1.01587, 0.531746, 0.0543558, 1.01587, 0.531746, -0.0408637, -1.01587, 0.531746, 0.0543558, 1.01587, -0.515873, 0.0543558, 1.01587, -0.515873, -0.0408637, -1.01587, 0.531746, -0.0408637, -1.01587, -0.515873, 0.0543558)
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.42896, 0)
@@ -58,7 +76,7 @@ transform = Transform3D(1, 0, 0, 0, -0.584151, 0.811645, 0, -0.811645, -0.584151
 shadow_enabled = true
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6556, 2.32625, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -12.6556, 2.32625, 0)
 physics_material_override = SubResource("PhysicsMaterial_7i6bb")
 linear_damp_mode = 1
 linear_damp = 0.1
@@ -71,7 +89,7 @@ mesh = SubResource("SphereMesh_v7gvq")
 shape = SubResource("SphereShape3D_n3ylu")
 
 [node name="RigidBody3D4" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6556, 3.50561, -0.834946)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -12.6556, 3.50561, -0.834946)
 physics_material_override = SubResource("PhysicsMaterial_7i6bb")
 linear_damp = 0.1
 
@@ -83,7 +101,7 @@ mesh = SubResource("SphereMesh_v7gvq")
 shape = SubResource("SphereShape3D_n3ylu")
 
 [node name="RigidBody3D3" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.021, 2.81042, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -10.021, 2.81042, 0)
 physics_material_override = SubResource("PhysicsMaterial_7i6bb")
 
 [node name="SphereMesh" type="MeshInstance3D" parent="RigidBody3D3"]
@@ -94,7 +112,7 @@ mesh = SubResource("SphereMesh_v7gvq")
 shape = SubResource("SphereShape3D_n3ylu")
 
 [node name="RigidBody3D2" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6556, 2.32625, -2.41212)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.576047, 3.79713, -6.20495)
 physics_material_override = SubResource("PhysicsMaterial_7i6bb")
 
 [node name="SphereMesh" type="MeshInstance3D" parent="RigidBody3D2"]
@@ -105,7 +123,7 @@ mesh = SubResource("SphereMesh_v7gvq")
 shape = SubResource("SphereShape3D_n3ylu")
 
 [node name="VehicleBody3D" type="VehicleBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.318127, 1.20455, -5.84102)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.879555, 1.20455, -7.21186)
 physics_material_override = SubResource("PhysicsMaterial_6f84d")
 script = ExtResource("1_xt84k")
 
@@ -115,13 +133,13 @@ mesh = SubResource("BoxMesh_nu2d0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.230628, 0.419814, -0.152962)
-shape = SubResource("ConvexPolygonShape3D_rdyk7")
+shape = SubResource("ConvexPolygonShape3D_blq1y")
 
 [node name="wheel_fl" type="VehicleWheel3D" parent="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08381, 0, 2.09299)
 use_as_traction = true
 use_as_steering = true
-suspension_stiffness = 50.0
+suspension_stiffness = 100.0
 damping_compression = 1.5
 damping_relaxation = 2.0
 
@@ -133,7 +151,7 @@ mesh = SubResource("TorusMesh_v2ckm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2.09299)
 use_as_traction = true
 use_as_steering = true
-suspension_stiffness = 50.0
+suspension_stiffness = 100.0
 damping_compression = 1.5
 damping_relaxation = 2.0
 
@@ -144,7 +162,7 @@ mesh = SubResource("TorusMesh_v2ckm")
 [node name="wheel_rl" type="VehicleWheel3D" parent="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08381, 0, -2.05406)
 use_as_traction = true
-suspension_stiffness = 50.0
+suspension_stiffness = 100.0
 damping_compression = 1.5
 damping_relaxation = 2.0
 
@@ -155,7 +173,7 @@ mesh = SubResource("TorusMesh_v2ckm")
 [node name="wheel_rr" type="VehicleWheel3D" parent="VehicleBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54839, 0, -2.05406)
 use_as_traction = true
-suspension_stiffness = 50.0
+suspension_stiffness = 100.0
 damping_compression = 1.5
 damping_relaxation = 2.0
 
@@ -165,3 +183,39 @@ mesh = SubResource("TorusMesh_v2ckm")
 
 [node name="Camera3D" type="Camera3D" parent="VehicleBody3D"]
 transform = Transform3D(-0.997216, -1.85746e-09, 0.0745609, 0.0270819, 0.931704, 0.362208, -0.0694687, 0.363219, -0.92911, -0.18784, 2.89602, -5.05837)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28593, 1.39661, -0.250055)
+mesh = SubResource("BoxMesh_gw4xk")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28593, 1.39661, -0.250055)
+shape = SubResource("ConvexPolygonShape3D_u4kf7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.786878, 1.39661, -0.250055)
+mesh = SubResource("BoxMesh_gw4xk")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.786878, 1.39661, -0.250055)
+shape = SubResource("ConvexPolygonShape3D_ryvu1")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.234815, 1.4315, 2.76959)
+mesh = SubResource("BoxMesh_io6b5")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.234815, 1.4315, 2.76959)
+shape = SubResource("ConvexPolygonShape3D_rqrv3")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.234815, 1.4315, -3.17145)
+mesh = SubResource("BoxMesh_io6b5")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.234815, 1.4315, -3.17145)
+shape = SubResource("ConvexPolygonShape3D_x3g7s")
