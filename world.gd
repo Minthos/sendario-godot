@@ -22,5 +22,5 @@ func _on_dynamite_launcher_launch_dynamite(stick, direction, location):
 func _on_explode(explosion, location):
 	var object = explosion.instantiate()
 	add_child(object)
-	object.position = location
+	object.global_position = location
 

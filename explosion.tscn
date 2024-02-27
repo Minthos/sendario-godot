@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm8avy4be54y"]
+[gd_scene load_steps=7 format=3 uid="uid://bm8avy4be54y"]
 
 [ext_resource type="Script" path="res://explosion.gd" id="1_rfcde"]
 [ext_resource type="AudioStream" uid="uid://cb24vlbgbyrxp" path="res://addons/kenney sci-fi sounds/explosion_crunch_002.ogg" id="1_tkndk"]
@@ -11,6 +11,10 @@ initial_velocity_max = 50.0
 gravity = Vector3(0, 0, 0)
 damping_min = 5.0
 damping_max = 5.0
+attractor_interaction_enabled = false
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ocpx"]
 albedo_color = Color(1, 0.792157, 0.235294, 1)
@@ -22,10 +26,14 @@ height = 0.2
 radial_segments = 8
 rings = 8
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_j5phx"]
+radius = 15.0
+
 [node name="explosion" type="GPUParticles3D"]
 amount = 256
 explosiveness = 0.9
 randomness = 1.0
+collision_base_size = 0.2
 process_material = SubResource("ParticleProcessMaterial_qc64b")
 draw_pass_1 = SubResource("SphereMesh_6axdm")
 script = ExtResource("1_rfcde")
@@ -34,3 +42,8 @@ script = ExtResource("1_rfcde")
 stream = ExtResource("1_tkndk")
 autoplay = true
 max_distance = 100.0
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_j5phx")
