@@ -17,4 +17,11 @@ maybe find some resources
 ?. RTS-like interface for placing building schematics but the construction ingredients must be moved to the construction site manually
 don't worry about the actual constructing for now, just input resources and watch the building grow bigger
 
+? mechs, according to youtube spider tutorial
+https://www.youtube.com/watch?v=G_seJ2Yg1GA
+
+? railroad tracks and roads, according to youtube tutorial
+https://www.youtube.com/watch?v=Gfpnxg-jne4
+
+
 
