@@ -1,8 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://bhyqau1on7ymq"]
+[gd_scene load_steps=25 format=3 uid="uid://bhyqau1on7ymq"]
 
+[ext_resource type="Script" path="res://world.gd" id="1_abh56"]
 [ext_resource type="Script" path="res://car.gd" id="1_xt84k"]
 [ext_resource type="Material" uid="uid://dj3735uejjx2o" path="res://wood.tres" id="2_3cpvb"]
 [ext_resource type="Script" path="res://arm_actuator.gd" id="2_ly3l6"]
+[ext_resource type="Script" path="res://dynamite_launcher.gd" id="5_cfq3c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eyhcg"]
 size = Vector3(1000, 1, 1000)
@@ -71,8 +73,9 @@ points = PackedVector3Array(1.02381, 1.52351, 0.0464192, -1.02381, -1.52351, -0.
 material = ExtResource("2_3cpvb")
 size = Vector3(2, 3, 0.05)
 
-[node name="Node3D" type="Node3D"]
+[node name="world" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.42896, 0)
+script = ExtResource("1_abh56")
 
 [node name="ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -255,6 +258,11 @@ transform = Transform3D(1, 0, 0, 0, -0.0871557, -0.996194, 0, 0.996194, -0.08715
 shape = SubResource("ConvexPolygonShape3D_yqyto")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="T0_harvester/loader/CollisionShape3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_c3e82")
 skeleton = NodePath("../../..")
+
+[node name="dynamite_launcher" type="Node3D" parent="T0_harvester"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.99941, 7.31588)
+script = ExtResource("5_cfq3c")
+
+[connection signal="launch_dynamite" from="T0_harvester/dynamite_launcher" to="." method="_on_dynamite_launcher_launch_dynamite"]
