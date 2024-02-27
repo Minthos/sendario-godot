@@ -61,4 +61,59 @@ Archeological treasures
 Buried ruins of ancient civilizations, buried bases and equipment from players who have stopped playing, bones and fossils of prehistoric fauna
 
 
+Forests and other biomes with plants and animals
+
+
+== Population centers
+
+All towns have shops, larger ones have factories
+
+
+== Logistics
+
+Slightly more involved than transport tycoon deluxe
+No coverage area, goods have to be physically moved.
+No magical payment for moving stuff, the player buys and sells goods or accepts courier contracts.
+Can ignore passengers and mail, only focus on industry and trade
+Initially no AI controlled vehicles unless someone contributes a vehicle AI
+
+
+== Refining, crafting and construction
+
+Would be cool to have players build factories from components like storage tanks/depots, conveyors, pipes, moulds/presses/mills/reactors and
+assembly lines with human or robotic workers
+Not super complicated, just enough to manually configure what goes in and what comes out
+Initially all of this can be abstracted away and factories can just be gray boxes with loading area in one end and unloading area in the other
+
+T0:
+- Ore smelter: Turns mineral ores into ingots
+- Refinery: Turns raw hydrocarbons, nitrates and other chemicals into purified versions including fuel and fertilizer
+- Chemical factory: Makes explosives, crafting materials and other interesting chemicals including rubber and silicone
+- Forge: Makes basic metal shapes like railroad tracks, armor plates, structural beams, storage tanks
+- Mechanical factory: Makes mechanical devices like pumps, motors, land vehicles, tools and weapons.
+- Shipyard: Makes boats
+
+T1:
+- Chip fab: Makes computer chips
+- Electronics factory: Makes drones, small robots and other more advanced electronic devices than can be made in the mechanical factory
+- Rocket factory: Makes spaceships
+- Aerospace factory: Makes aeroplanes
+- Mech factory: Makes large robots and battlemechs
+
+T0:
+- Coal power plant
+- Hydrocarbon power plant
+- Windmill
+
+T1:
+- Solar power plant
+- Geothermal power plant
+- Nuclear power plant
+
+T2:
+- Fusion power plant
+
+T3:
+- Antimatter synthesizer
+
 
