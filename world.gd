@@ -14,6 +14,13 @@ func _process(delta):
 
 func _on_dynamite_launcher_launch_dynamite(stick, direction, location):
 	var object = stick.instantiate()
+	object.explode.connect(_on_explode)
 	add_child(object)
 	object.position = location
 	object.apply_impulse(direction)
+
+func _on_explode(explosion, location):
+	var object = explosion.instantiate()
+	add_child(object)
+	object.position = location
+
