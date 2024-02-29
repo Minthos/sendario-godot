@@ -8,7 +8,12 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("mode"):
-		$cam_rts.current = not $cam_rts.current
+		if $cam_rts.current:
+			$cam_rts.current = false
+		else:
+			var alt_vec = $cam_rts.altitude_vector(10000.0, 100.0)
+			$cam_rts.global_position = $T0_harvester.global_position + alt_vec
+			$cam_rts.current = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
