@@ -6,6 +6,10 @@ func _ready():
 	pass # Replace with function body.
 
 
+func _input(event):
+	if event.is_action_pressed("mode"):
+		$cam_rts.current = not $cam_rts.current
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_pressed("quit"):

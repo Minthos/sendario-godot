@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://bhyqau1on7ymq"]
+[gd_scene load_steps=27 format=3 uid="uid://bhyqau1on7ymq"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_abh56"]
 [ext_resource type="Script" path="res://car.gd" id="1_xt84k"]
 [ext_resource type="Material" uid="uid://dj3735uejjx2o" path="res://wood.tres" id="2_3cpvb"]
 [ext_resource type="Script" path="res://arm_actuator.gd" id="2_ly3l6"]
 [ext_resource type="Script" path="res://dynamite_launcher.gd" id="5_cfq3c"]
+[ext_resource type="Script" path="res://cam_rts.gd" id="6_nhv6r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eyhcg"]
 size = Vector3(1000, 1, 1000)
@@ -72,6 +73,13 @@ points = PackedVector3Array(1.02381, 1.52351, 0.0464192, -1.02381, -1.52351, -0.
 [sub_resource type="BoxMesh" id="BoxMesh_c3e82"]
 material = ExtResource("2_3cpvb")
 size = Vector3(2, 3, 0.05)
+
+[sub_resource type="Curve3D" id="Curve3D_38g2n"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -5.62267, 4.42896, 13.7421, 0, 0, 0, 0, 0, 0, -11.7598, 4.42896, 98.89, 0, 0, 0, 0, 0, 0, 45.3601, 4.42896, 224.01, 0, 0, 0, 0, 0, 0, 154.16, 4.42896, 219.93, 0, 0, 0, 0, 0, 0, 170.48, 4.42896, 132.89, 0, 0, 0, 0, 0, 0, 239.84, 4.42896, 107.05, 0, 0, 0, 0, 0, 0, 301.04, 4.42896, 172.33, 0, 0, 0, 0, 0, 0, 305.12, 4.42896, 321.93, 0, 0, 0, 0, 0, 0, 223.52, 4.42896, 391.29, 0, 0, 0, 0, 0, 0, 69.8402, 4.42896, 389.93, 0, 0, 0, 0, 0, 0, -44.3998, 4.42896, 331.45, 0, 0, 0, 0, 0, 0, -161.36, 4.42896, 347.77, 0, 0, 0, 0, 0, 0, -245.68, 4.42896, 392.65, 0, 0, 0, 0, 0, 0, -347.68, 4.42896, 330.09, 0, 0, 0, 0, 0, 0, -368.079, 4.42896, 181.85, 0, 0, 0, 0, 0, 0, -330, 4.42896, 82.57, 0, 0, 0, 0, 0, 0, -191.28, 4.42896, -13.9899, 0, 0, 0, 0, 0, 0, -168.16, 4.42896, -81.9899, 11.5037, 0.049695, 9.47897, -11.5037, -0.049695, -9.47897, -200.834, 4.50853, -118.752, 14.1475, 0.0809383, 10.6452, -14.1475, -0.0809383, -10.6452, -255.845, 4.54562, -118.003, 2.0744, -0.0848103, 9.96269, -2.0744, 0.0848103, -9.96269, -281.04, 4.42896, -167.67, -16.7666, 0.0117846, 12.1379, 16.7666, -0.0117846, -12.1379, -223.92, 4.42896, -230.23, -24.9649, 0.144771, -10.0842, 24.9649, -0.144771, 10.0842, -100.16, 4.42896, -215.27, -17.9001, -0.0101318, -37.8566, 17.9001, 0.0101318, 37.8566, -6.48887, 4.83186, -140.729, 0, 0, 0, 0, 0, 0, -5.62267, 4.42896, 13.7421),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.147275, 0.242878, 0.508488, 0.170055, -0.0781003, 0.203215, 0)
+}
+point_count = 25
 
 [node name="world" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.42896, 0)
@@ -211,7 +219,7 @@ damping_relaxation = 2000.0
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("TorusMesh_v2ckm")
 
-[node name="Camera3D" type="Camera3D" parent="T0_harvester"]
+[node name="cam_chase" type="Camera3D" parent="T0_harvester"]
 transform = Transform3D(-1, -5.01436e-08, 7.16125e-08, 0, 0.819152, 0.573576, -8.74228e-08, 0.573576, -0.819152, -0.18784, 6.97392, -4.78983)
 fov = 90.0
 
@@ -264,5 +272,27 @@ skeleton = NodePath("../../..")
 [node name="dynamite_launcher" type="Node3D" parent="T0_harvester"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.99941, 7.31588)
 script = ExtResource("5_cfq3c")
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_38g2n")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.521111, 0)
+use_collision = true
+polygon = PackedVector2Array(-3.34375, -0.0168152, -3.09768, 0.0767906, 4.70933, 0.144236, 5.07415, 0.0244381)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="cam_rts" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.344414, 0.938818, 0, -0.938818, 0.344414, 0, 17.7989, 0)
+script = ExtResource("6_nhv6r")
 
 [connection signal="launch_dynamite" from="T0_harvester/dynamite_launcher" to="." method="_on_dynamite_launcher_launch_dynamite"]
